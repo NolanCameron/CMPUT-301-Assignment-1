@@ -20,6 +20,8 @@ import androidx.fragment.app.Fragment;
 public class MainActivity extends AppCompatActivity{
 
     private ArrayList<Log> logs;
+    private ListView logList;
+    private LogArrayAdapter logAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,50 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 new LogListFragment().show(getSupportFragmentManager(), "Log");
+            }
+        });
+
+        
+
+        happyBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 addLog(Emotion.HAPPY);
+            }
+        });
+
+        angryBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addLog(Emotion.ANGRY);
+            }
+        });
+
+        excitedBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addLog(Emotion.EXCITED);
+            }
+        });
+
+        tiredBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addLog(Emotion.TIRED);
+            }
+        });
+
+        gratefulBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addLog(Emotion.GRATEFUL);
+            }
+        });
+
+        sadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addLog(Emotion.SAD);
             }
         });
 

@@ -1,8 +1,11 @@
 package com.example.assignment1;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
@@ -19,17 +22,17 @@ public class LogArrayAdapter extends ArrayAdapter<Log> {
     public View getView(int position, View convertView, @NonNull ViewGroup parent) {
         View view;
         if (convertView == null)
-            view = LayoutInflater.from(getContext()).inflate(R.layout.content, parent, false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.log, parent, false);
         else
             view = convertView;
 
-        City city = getItem(position);
+        Log log = getItem(position);
 
-        TextView cityName =view.findViewById(R.id.city_text);
-        TextView provinceName =view.findViewById(R.id.province_text);
+        TextView emotionName =view.findViewById(R.id.emotionText);
+        TextView timestampName = view.findViewById(R.id.timestampText);
 
-        cityName.setText(city.getName());
-        provinceName.setText(city.getProvince());
+        emotionName.setText(log.getEmotion());
+        timestampName.setText(log.getTimestamp().toString());
 
         return view;
     }
